@@ -1,19 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true"
+    android:background="#F5FAF8">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--encabezado-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <!--imagen logo-->
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/chungungo"
+                android:scaleType="centerCrop"
+                android:contentDescription="Logo de Chungungo"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chungungo"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="#07594B"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mi inventario del hogar"
+                    android:textSize="16sp"
+                    android:textColor="#666666"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--mensaje de bienvenida-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/fondo_registro"
+            android:padding="18dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenido a Chungungo"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    android:textColor="#07594B"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Administra tus productos y manten tu hogar organizado"
+                    android:textSize="14sp"
+                    android:textColor="#555555"/>
+
+            </LinearLayout>
+
+            <!--imagen de caja o productos-->
+            <ImageView
+                android:id="@+id/imgBienvenida"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:src="@drawable/bienvenida"
+                android:scaleType="fitCenter"
+                android:contentDescription="Productos del hogar"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+        <!--estadisticas-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="25dp">
+
+            <!--total de productos-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="135dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/fondo_registro"
+                android:padding="10dp"
+                android:elevation="2dp"
+                android:layout_marginEnd="6dp">
+
+                <ImageView
+                    android:id="@+id/imgTotalProductos"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/productos"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Icono total de productos"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total de productos"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="#444444"/>
+
+                <TextView
+                    android:id="@+id/tvTotalProductos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#07866B"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <!--stock bajo o critico-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="135dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/fondo_registro"
+                android:padding="10dp"
+                android:elevation="2dp"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:id="@+id/imgStockBajo"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/bajo_stock"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Icono stock bajo"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stock bajo"
+                    android:textSize="14sp"
+                    android:textColor="#444444"/>
+
+                <TextView
+                    android:id="@+id/tvStockBajo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#07866B"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--titulo categorias-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categorías"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#07594B"
+            android:layout_marginBottom="16dp"/>
+
+        <!--fila alimentos y liempieza-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!--alimentos-->
+            <LinearLayout
+                android:id="@+id/cardAlimentos"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/fondo_registro"
+                android:elevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Ver alimentos"
+                android:layout_marginEnd="6dp">
+
+                <ImageView
+                    android:id="@+id/imgAlimentos"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/alimentos"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Categoría alimentos"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alimentos"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#07594B"
+                    android:layout_marginTop="6dp"/>
+
+            </LinearLayout>
+
+            <!--limpieza-->
+            <LinearLayout
+                android:id="@+id/cardLimpieza"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/fondo_registro"
+                android:elevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Ver limpieza"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:id="@+id/imgLimpieza"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/limpieza"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Categoría limpieza"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Limpieza"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#07594B"
+                    android:layout_marginTop="6dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--higiene-->
+        <LinearLayout
+            android:id="@+id/cardHigiene"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/fondo_registro"
+            android:elevation="2dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Ver higiene"
+            android:layout_marginBottom="26dp">
+
+            <ImageView
+                android:id="@+id/imgHigiene"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/higiene"
+                android:scaleType="fitCenter"
+                android:contentDescription="Categoría higiene"
+                android:layout_marginEnd="14dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Higiene"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#07594B"/>
+
+        </LinearLayout>
+
+        <!--acceso rapido a 2 botones-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Accesos rapidos"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#07594B"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAgregarProducto"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:text="Agregar producto"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#07866B"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btnVerInventario"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:text="Ver inventario"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#459C35"
+                android:layout_marginStart="6dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

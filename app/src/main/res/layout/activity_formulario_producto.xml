@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5FAF8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!--encabezado-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="18dp">
+
+            <ImageButton
+                android:id="@+id/btnVolver"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/chungungo"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Volver"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chungungo"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#07594B"/>
+
+        </LinearLayout>
+
+        <!--imagen inicio-->
+        <ImageView
+            android:id="@+id/imgFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:src="@drawable/bienvenida"
+            android:scaleType="fitCenter"
+            android:contentDescription="Imagen de productos del hogar"
+            android:layout_marginBottom="10dp"/>
+
+        <!--titulo-->
+        <TextView
+            android:id="@+id/tvTituloFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Agregar producto"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#07594B"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Completa los datos del producto para tu inventario"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <!--formulario contenedor-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/fondo_registro"
+            android:elevation="3dp"
+            android:padding="16dp">
+
+            <!--nombre-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del producto"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#07594B"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etNombreProducto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Ej. Arroz, detergente, shampoo..."
+                android:inputType="textCapSentences"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="12dp"
+                android:background="@drawable/fondo_campo"
+                android:layout_marginBottom="16dp"/>
+
+            <!--categoria-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Categoria"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#07594B"
+                android:layout_marginBottom="6dp"/>
+
+            <Spinner
+                android:id="@+id/spCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/fondo_campo"
+                android:padding="10dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!--cantidad y unidad-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <!--cantidad-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#07594B"
+                        android:layout_marginBottom="6dp"/>
+
+                    <EditText
+                        android:id="@+id/etCantidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Ej. 5"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textSize="14sp"
+                        android:padding="12dp"
+                        android:background="@drawable/fondo_campo"/>
+
+                </LinearLayout>
+
+                <!--unidad-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Unidad"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#07594B"
+                        android:layout_marginBottom="6dp"/>
+
+                    <Spinner
+                        android:id="@+id/spUnidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/fondo_campo"
+                        android:padding="10dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--stock minimo-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stock mínimo"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#07594B"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etStockMinimo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Ej. 2"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="12dp"
+                android:background="@drawable/fondo_campo"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cantidad a partir de la cual se mostrara la alerta de stock bajo"
+                android:textSize="12sp"
+                android:textColor="#777777"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <!--los botones-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/btnLimpiar"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Limpiar"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textColor="#07594B"
+                android:backgroundTint="#E0EDE8"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btnGuardarProducto"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Guardar producto"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#07866B"
+                android:layout_marginStart="6dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

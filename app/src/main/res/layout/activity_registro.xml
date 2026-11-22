@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5FAF8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <!--contendedor del registro-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="22dp"
+            android:background="@drawable/fondo_registro"
+            android:elevation="4dp">
+
+            <!--imagen principal-->
+            <ImageView
+                android:id="@+id/imgRegistro"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/chungungo"
+                android:scaleType="centerCrop"
+                android:contentDescription="Imagen de Chungungo"
+                android:layout_marginBottom="10dp"/>
+
+            <!--nombre de la app-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chungungo"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#07594B"/>
+
+            <!--subtitulo-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crear cuenta"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="30dp"/>
+
+            <!--nombre-->
+            <EditText
+                android:id="@+id/etNombreRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="14dp"
+                android:background="@drawable/fondo_campo"
+                android:layout_marginBottom="12dp"/>
+
+            <!--correo electronico-->
+            <EditText
+                android:id="@+id/etCorreoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="14dp"
+                android:background="@drawable/fondo_campo"
+                android:layout_marginBottom="12dp"/>
+
+            <!--contraseña-->
+            <EditText
+                android:id="@+id/etContrasenaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="14dp"
+                android:background="@drawable/fondo_campo"
+                android:layout_marginBottom="12dp"/>
+
+            <!--confirmar contraseña-->
+            <EditText
+                android:id="@+id/etConfirmarContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Confirmar contraseña"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:padding="14dp"
+                android:background="@drawable/fondo_campo"
+                android:layout_marginBottom="24dp"/>
+
+            <!--boton-->
+            <Button
+                android:id="@+id/btnRegistrarse"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Registrarse"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#07866B"/>
+
+            <!--ir al inicio-->
+            <TextView
+                android:id="@+id/tvIrLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Ya tienes cuenta? Inicia sesion"
+                android:textSize="13sp"
+                android:textColor="#07594B"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
