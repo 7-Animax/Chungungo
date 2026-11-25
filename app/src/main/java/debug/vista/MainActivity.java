@@ -1,6 +1,6 @@
 package debug.vista;
 
-import com.devst.*;
+import com.devst.chungungo.R;
 
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;

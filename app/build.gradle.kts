@@ -30,6 +30,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -46,6 +47,7 @@ dependencies {
     implementation(libs.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation(libs.firebase.firestore)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -53,7 +55,7 @@ dependencies {
     // Administrador de versiones de Firebase
     implementation(platform("com.google.firebase:firebase-bom:35.2.0"))
 
-    // Autenticación de usuarios
+    // Autenticacion de usuarios
     implementation("com.google.firebase:firebase-auth")
 
     // Base de datos NoSQL
@@ -61,4 +63,7 @@ dependencies {
 
     // Notificaciones push
     implementation("com.google.firebase:firebase-messaging")
+
+    // Sincronizacion SQLite y Firebase
+    implementation("androidx.work:work-runtime:2.10.1")
 }
