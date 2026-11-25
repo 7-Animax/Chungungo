@@ -72,6 +72,15 @@ public class ProductoDAO {
         return lista;
     }
 
+    public Producto buscarProducto(int id) {
+        SQLiteDatabase db = conexion.getReadableDatabase();
+        try (Cursor cursor = db.query("productos", null,
+                "id = ? AND usuario_id = ? AND eliminado = 0",
+                new String[]{String.valueOf(id), usuarioId}, null, null, null)) {
+            return cursor.moveToFirst() ? leerProducto(cursor) : null;
+        }
+    }
+
     // UPDATE
     public boolean actualizarProducto(Producto producto) {
 
@@ -115,7 +124,7 @@ public class ProductoDAO {
             if (resultado > 0) {
 
                 db.execSQL(
-                        "UPDATE productos SET pendiente = pendiente + 1 " +
+                        "UPDATE productos SET pendiente = 1, version = version + 1 " +
                                 "WHERE id = ? AND usuario_id = ?",
                         new Object[]{id, usuarioId}
                 );
@@ -185,7 +194,7 @@ public class ProductoDAO {
 
                 lista.add(new Cambio(
                         leerProducto(cursor),
-                        cursor.getInt(cursor.getColumnIndexOrThrow("pendiente")),
+                        cursor.getLong(cursor.getColumnIndexOrThrow("version")),
                         cursor.getInt(cursor.getColumnIndexOrThrow("eliminado")) == 1
                 ));
             }
@@ -200,7 +209,7 @@ public class ProductoDAO {
         SQLiteDatabase db = conexion.getWritableDatabase();
 
         String condicion =
-                "id = ? AND usuario_id = ? AND pendiente = ?";
+                "id = ? AND usuario_id = ? AND version = ? AND pendiente > 0";
 
         String[] argumentos = {
                 String.valueOf(cambio.producto.getId()),
@@ -309,10 +318,10 @@ public class ProductoDAO {
     public static class Cambio {
 
         public final Producto producto;
-        public final int version;
+        public final long version;
         public final boolean eliminado;
 
-        public Cambio(Producto producto, int version,
+        public Cambio(Producto producto, long version,
                       boolean eliminado) {
 
             this.producto = producto;

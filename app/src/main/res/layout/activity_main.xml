@@ -350,5 +350,14 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:backgroundTint="#45645B"
+            android:text="@string/cerrar_sesion"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </ScrollView>

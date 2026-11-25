@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function autenticado() {
+      return request.auth != null;
+    }
+
+    function propietario(datos) {
+      return autenticado() && datos.usuarioId == request.auth.uid;
+    }
+
+    function textoObligatorio(valor) {
+      return valor is string && valor.matches('.*\\S.*');
+    }
+
+    function cantidadValida(valor) {
+      // La diferencia es cero solo para números finitos.
+      return valor is number && valor >= 0 && valor - valor == 0;
+    }
+
+    function productoValido(datos, productoId) {
+      return datos.keys().hasAll([
+          'firebaseId', 'usuarioId', 'nombre', 'categoria', 'cantidad', 'unidad', 'stockMinimo'
+        ])
+        && datos.keys().hasOnly([
+          'firebaseId', 'usuarioId', 'nombre', 'categoria', 'cantidad', 'unidad', 'stockMinimo'
+        ])
+        && datos.firebaseId == productoId
+        && textoObligatorio(datos.nombre)
+        && textoObligatorio(datos.categoria)
+        && textoObligatorio(datos.unidad)
+        && cantidadValida(datos.cantidad)
+        && cantidadValida(datos.stockMinimo);
+    }
+
+    match /productos/{productoId} {
+      allow read, delete: if propietario(resource.data);
+      allow create: if propietario(request.resource.data)
+        && productoValido(request.resource.data, productoId);
+      allow update: if propietario(resource.data)
+        && propietario(request.resource.data)
+        && productoValido(request.resource.data, productoId);
+    }
+
+    match /usuarios/{usuarioId} {
+      allow get: if autenticado() && request.auth.uid == usuarioId;
+    }
+  }
+}

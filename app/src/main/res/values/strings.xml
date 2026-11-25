@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Chungungo</string>
+    <string name="inventario">Inventario</string>
+    <string name="inventario_vacio">Aún no hay productos en este listado.</string>
+    <string name="agregar_producto">Agregar producto</string>
+    <string name="volver">Volver</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="editar_producto">Editar producto</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="restaurar_campos">Restaurar</string>
+    <string name="sync_pendiente">Sincronización pendiente. Puedes seguir usando el inventario.</string>
+    <string name="sync_en_progreso">Sincronizando con Firebase…</string>
+    <string name="sync_completa">Inventario sincronizado con Firebase.</string>
+    <string name="sync_error">No se pudo sincronizar. Vuelve a abrir el inventario para reintentar.</string>
+    <string name="detalle_producto">%1$s\n%2$s · %3$s %4$s · Mínimo: %5$s</string>
+    <string name="confirmar_eliminacion">¿Eliminar «%1$s» del inventario?</string>
 </resources>

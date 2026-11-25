@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5FAF8"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvTituloInventario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventario"
+        android:textColor="#07594B"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEstadoSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:accessibilityLiveRegion="polite"
+        android:text="@string/sync_pendiente"
+        android:textColor="#465752"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnVolverInventario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#45645B"
+            android:text="@string/volver"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnAgregarInventario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#07866B"
+            android:text="@string/agregar_producto"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/listaProductos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#CBDFD8"
+            android:dividerHeight="1dp" />
+
+        <TextView
+            android:id="@+id/tvInventarioVacio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"
+            android:text="@string/inventario_vacio"
+            android:textColor="#465752"
+            android:textSize="16sp" />
+    </FrameLayout>
+</LinearLayout>

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ConexionBD extends SQLiteOpenHelper {
 
     private static final String NOMBRE_BD = "chungungo_local.db";
-    private static final int VERSION_BD = 1;
+    private static final int VERSION_BD = 2;
 
     public ConexionBD(Context context) {
         super(context, NOMBRE_BD, null, VERSION_BD);
@@ -26,12 +26,15 @@ public class ConexionBD extends SQLiteOpenHelper {
                 "firebase_id TEXT NOT NULL UNIQUE, " +
                 "usuario_id TEXT NOT NULL, " +
                 "pendiente INTEGER DEFAULT 1, " +
+                "version INTEGER NOT NULL DEFAULT 0, " +
                 "eliminado INTEGER DEFAULT 0)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db,
                           int oldVersion, int newVersion) {
-        // Migraciones para futuras versiones.
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE productos ADD COLUMN version INTEGER NOT NULL DEFAULT 0");
+        }
     }
 }

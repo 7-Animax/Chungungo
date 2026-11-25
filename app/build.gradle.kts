@@ -42,11 +42,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.auth)
-    implementation(libs.credentials)
-    implementation(libs.credentials.play.services.auth)
-    implementation(libs.googleid)
-    implementation(libs.firebase.firestore)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -60,9 +55,6 @@ dependencies {
 
     // Base de datos NoSQL
     implementation("com.google.firebase:firebase-firestore")
-
-    // Notificaciones push
-    implementation("com.google.firebase:firebase-messaging")
 
     // Sincronizacion SQLite y Firebase
     implementation("androidx.work:work-runtime:2.10.1")
