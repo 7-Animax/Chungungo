@@ -1,4 +1,4 @@
-package com.devst.chungungo;
+package debug.conexion;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

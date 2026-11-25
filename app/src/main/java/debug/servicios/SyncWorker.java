@@ -1,4 +1,4 @@
-package com.devst.chungungo;
+package debug.servicios;
 
 import android.content.Context;
 import android.util.Log;
@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import debug.modelo.Producto;
+import debug.vistaModelo.ProductoDAO;
 
 public class SyncWorker extends Worker {
 

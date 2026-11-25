@@ -1,4 +1,4 @@
-package com.devst.chungungo;
+package debug.modelo;
 
 public class Producto {
 

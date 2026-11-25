@@ -1,4 +1,4 @@
-package com.devst.chungungo;
+package debug.repositorio;
 
 import android.content.Context;
 
@@ -13,6 +13,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+
+import debug.modelo.Producto;
+import debug.vistaModelo.ProductoDAO;
+import debug.servicios.SyncWorker;
 
 public class ProductoRepository {
 

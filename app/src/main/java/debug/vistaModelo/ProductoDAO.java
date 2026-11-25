@@ -1,13 +1,17 @@
-package com.devst.chungungo;
+package debug.vistaModelo;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import debug.conexion.ConexionBD;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
+
+import debug.modelo.Producto;
 
 public class ProductoDAO {
 
